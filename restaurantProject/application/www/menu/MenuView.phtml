@@ -1,0 +1,42 @@
+<h1>Menu view</h1>
+
+<div class="menu">
+<section class="entree">
+    <h1>SELECTION OF ENTRE</h1>
+    <div class="flex">
+        <?php if(isset($entree)): ?>
+        <?php //var_dump($entree); ?>
+        <?php foreach($entree as $entre): ?>
+
+        <article>       
+            <h3><?= $entre['product_name']; ?></h3>
+            <img src="" alt="">
+            <p>Price:<?= $entre['price']; ?>Euros</p>
+            <button>Ajoute</button>
+        </article>
+
+        <?php endforeach; ?>
+        <?php endif; ?>
+        </div>
+</section>
+<section class="plat">
+    <h1>SELECTION OF PLATES</h1>
+    <div class="flex">
+        <?php if(isset($plates)): ?>
+        <?php //var_dump($entree); ?>
+        <?php foreach($plates as $plate): ?>
+
+        <article>       
+            <h3><?= $plate['product_name']; ?></h3>
+            <img src="" alt="">
+            <p>Price:<?= $plate['price']; ?>Euros</p>
+            <button>Ajoute</button>
+        </article>
+
+        <?php endforeach; ?>
+        <?php endif; ?>
+        </div>
+</section>
+<section class="dessert">
+</section>
+</div>

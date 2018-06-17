@@ -1,0 +1,44 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+header, footer{
+    background-color: black;
+    color: blanchedalmond;
+    padding: 20px;
+    text-align: center;
+}
+nav{display: flex;}
+nav a{
+    text-decoration: none;
+    color: blanchedalmond;
+    text-align: center;
+    flex: 1;
+}
+main{
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgb(216, 216, 104);
+    padding: 10px 0;
+    min-height: 500px;
+}
+/*MENU PAGE*/
+.flex{
+    display:flex;
+    flex-wrap: wrap;
+}
+.menu article{
+    border:  1px solid black;
+    background-color: white;
+    margin: 10px;
+    min-width: 200px;
+    padding: 10px;
+}
+/*RESERVATION PAGE*/
+.reservation svg{
+    width: 80%;
+    margin: 0 auto;
+    height: 500px;
+    background-color: white;
+    border: 1px solid black;
+}
