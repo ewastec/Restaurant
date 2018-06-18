@@ -39,13 +39,24 @@ class LoginController
 		{			
 			// if password match create session 
 			$message = 'You are logged in !!!';
-			$_SESSION = $numberOfUsers;
-			var_dump($_SESSION);  
+			$userId = $numberOfUsers['id'];
+			$firstName = $numberOfUsers['first_name'];
+			$lastName = $numberOfUsers['last_name'];
+			$email = $numberOfUsers['email'];
+			$street = $numberOfUsers['street'];
+			$city = $numberOfUsers['city'];
+			$codePostal = $numberOfUsers['code_postal'];
+			$tel = $numberOfUsers['tel'];
+			// var_dump($userId); die;
+			$session = new UserSession();
+			$session->create($userId, $firstName, $lastName, $email, $street, $city, $codePostal, $tel);
 		}
 		else
 		{
 			$message = 'wrong password or email';
 		}
-		return ['message' => $message];
+		//return ['message' => $message];
+
+		$http->redirectTo('user');
     }
 }

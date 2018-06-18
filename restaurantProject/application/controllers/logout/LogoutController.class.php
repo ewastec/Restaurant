@@ -1,6 +1,6 @@
 <?php
 
-class UserController
+class LogoutController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
@@ -10,10 +10,8 @@ class UserController
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
-		$session = new UserSession();
-		//var_dump($session); die;
+        
 
-		return ['session' => $session];
     }
 
     public function httpPostMethod(Http $http, array $formFields)
@@ -24,6 +22,5 @@ class UserController
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $formFields contient l'équivalent de $_POST en PHP natif.
     	 */
-		
     }
 }

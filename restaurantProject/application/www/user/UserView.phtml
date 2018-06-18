@@ -1,13 +1,16 @@
 <h1>user wiev</h1>
 <div>
-<h1>Welcome username!!!</h1>
+<?php var_dump($session->getFirstName()); ?>
+<h1>Welcome <?= $session->getFirstName();?> <?= $session->getLastName();?> !!!</h1>
 <div class="left">
 <img src="" alt="">
 </div>
 <div class="right">
-<div class="email">show email</div>
-<div class="tel">tel</div>
-<div class="adress">adresse</div>
+<div class="email">email : <?php $session->getEmail();  ?></div>
+<div class="tel">tel : <?php $session->getTel();  ?></div>
+<div class="adress">adresse : <?php $session->getStreet();?>
+<?php $session->getCodePostal();  ?>
+<?php $session->getCity();  ?></div>
 <button class="edit">edit my account</button>
 <button class="delete">delete my account</button>
 </div>

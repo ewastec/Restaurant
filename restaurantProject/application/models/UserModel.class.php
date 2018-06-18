@@ -25,7 +25,7 @@ class UserModel
     public function loginUser($form)
     {
         $sql = "SELECT * FROM `users` WHERE email = ? AND password = ?";
-        $result = $this->db->query($sql, $form);
+        $result = $this->db->queryOne($sql, $form);
         //var_dump($result); die();
         return $result;
     }

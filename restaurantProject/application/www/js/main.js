@@ -1,2 +1,3 @@
 'use strict';
-$('#reservation').on()
+$('#showCalendar').on('click', displayCalendar);
+$('#showTable').on('click', displayTable);
