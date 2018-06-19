@@ -8,17 +8,30 @@
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
 
     <!-- Feuilles de styles de l'application -->
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= $wwwUrl ?>/css/style.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
-    <script src="<?= $wwwUrl ?>/js/calendar.js"></script>
-    <script src="<?= $wwwUrl ?>/js/calendar2.js"></script>
-    <script src="<?= $wwwUrl ?>/js/showTable.js"></script>
-    <script src="<?= $wwwUrl ?>/js/main.js"></script>
+    
+    
     <!-- Librairie jQuery -->
-    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script
+			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			  crossorigin="anonymous"></script>
 
     <!-- JavaScript de l'application -->
     <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+    
+    <script src="<?= $wwwUrl ?>/js/showTable.js"></script>
+    <script src="<?= $wwwUrl ?>/js/main.js"></script>
 </head>
 <body>
 
@@ -28,10 +41,15 @@
     <a href="<?=$requestUrl ?>/">Home</a>
     <a href="<?=$requestUrl ?>/menu">Menu</a>
     <a href="<?=$requestUrl ?>/reservation">Reservation</a>
+<?php $session = new UserSession;
+     if($session->isAuthenticated()): ?>
+     <a href="<?=$requestUrl ?>/logout">Logout</a>
+    <a href="<?=$requestUrl ?>/user">User Account</a>
+<?php else: ?>
     <a href="<?=$requestUrl ?>/register">Register</a>
     <a href="<?=$requestUrl ?>/login">Login</a>
-    <a href="<?=$requestUrl ?>/logout">Logout</a>
-    <a href="<?=$requestUrl ?>/user">User Account</a>
+<?php endif; ?>
+    
     </nav>
 </header>
 

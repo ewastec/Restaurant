@@ -27,27 +27,38 @@ class RegisterController
         // } else {
         //     $error[] = 'Your EMail Address is invalid  ';
         // }
-		$email = $formFields['email'];
 		
-		//create an array with value from formFields
-		$form = [];
-		foreach($formFields as $key=>$value)
-		{
-			$form[] = $value;
-		}
+		$validateForm = new FormValidation();
+		try {
+			$validateForm->isValid($formFields);
+			//create an array with value from formFields
+			// $form = [];
+			// foreach($formFields as $key=>$value)
+			// {
+			// 	$form[] = $value;
+			// }
+			$form = array_values($formFields);
+			$slice = array_splice($form, 4, 1);
+			//var_dump($form); die;
+			// check if email exist in db
+			$email = $formFields['email'];
+			$userMod = new UserModel();
+			$numberOfUsers = $userMod->checkEmail($email);
+			//var_dump(count($numberOfUsers)); die;
 
-		// check if email exist in db
-		$userMod = new UserModel();
-		$numberOfUsers = $userMod->checkEmail($email);
-		//var_dump(count($numberOfUsers)); die;
-
-		if(count($numberOfUsers) > 0)
-		{
-			$message = 'user with this email addresse alredy exist !!!';
-		}else{
-			//register user		
-			$message = $userMod->registerUser($form);
+			if(count($numberOfUsers) > 0)
+			{
+				$message = 'user with this email addresse alredy exist !!!';
+				return ['message' => $message];
+			}else{
+				//register user		
+				$userMod->registerUser($form);
+				$http->redirectTo('/login');
+			}
+			
+		} catch (Exception $e) {
+			$http->redirectTo('/');
 		}
-		return ['message' => $message];
     }
 }
+// b@gmail.com

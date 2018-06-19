@@ -11,9 +11,10 @@ class UserController
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
 		$session = new UserSession();
-		//var_dump($session); die;
-
-		return ['session' => $session];
+		if($session->isAuthenticated())
+		{
+			return ['session' => $session];
+		}		
     }
 
     public function httpPostMethod(Http $http, array $formFields)

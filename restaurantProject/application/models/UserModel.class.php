@@ -17,10 +17,10 @@ class UserModel
     }
     public function registerUser($form)
     {        
+        // var_dump($form); die;
         $sql = 'INSERT INTO `users`(`first_name`, `last_name`, `email`, `password`, `street`, `city`, `code_postal`, `tel`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';		
-        $this->db->executeSql($sql, $form);    
-        $message = "Thank you for registration !!!";        
-        return $message;       
+        $lastId = $this->db->executeSql($sql, $form);         
+        return $lastId;       
     }
     public function loginUser($form)
     {
