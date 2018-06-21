@@ -1,17 +1,19 @@
-<h1>user wiev</h1>
 <div>
-<?php var_dump($session->getFirstName()); ?>
 <h1>Welcome <?= $session->getFirstName();?> <?= $session->getLastName();?> !!!</h1>
 <div class="left">
 <img src="" alt="">
 </div>
 <div class="right">
-<div class="email">email : <?php $session->getEmail();  ?></div>
-<div class="tel">tel : <?php $session->getTel();  ?></div>
-<div class="adress">adresse : <?php $session->getStreet();?>
-<?php $session->getCodePostal();  ?>
-<?php $session->getCity();  ?></div>
-<button class="edit">edit my account</button>
-<button class="delete">delete my account</button>
+<div class="email">email : <?= $session->getEmail(); ?></div>
+<div class="tel">tel : <?= $session->getTel(); ?></div>
+<div class="adress">adresse : <?= $session->getStreet();?>
+<?= $session->getCodePostal(); ?> 
+<?= $session->getCity(); ?></div>
+<?= $session->getUserId();?>
+<form action="" method="post">
+<button type="submit" name="editAccount" class="edit" value="<?= $session->getUserId();?>">edit my account</button>
+</form>
+
+<button type="submit" name="deleteAccount" class="delete" value="<?= $session->getUserId();?>">delete my account</button>
 </div>
 </div>

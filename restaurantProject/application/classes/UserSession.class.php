@@ -9,7 +9,7 @@ class UserSession
 			session_start();
 		}
 	}
-    public function create($userId, $firstName, $lastName, $email, $street, $city, $codePostal, $tel)
+    public function create($userId, $firstName, $lastName, $email, $street, $city, $codePostal, $tel, $role)
     {
         // Construction de la session utilisateur
         $_SESSION['user'] =
@@ -21,7 +21,8 @@ class UserSession
             'Street'    => $street,
             'City'      => $city,
             'CodePostal'=> $codePostal,
-            'Tel'       => $tel
+            'Tel'       => $tel,
+            'Role'      => $role
         ];
     }
     public function destroy()
@@ -29,6 +30,14 @@ class UserSession
         // Destruction de l'ensemble de la session.
         $_SESSION = array();
         session_destroy();
+    }
+    public function getRole()
+    {
+        if($this->isAuthenticated() == false)
+        {
+            return null;
+        }
+        return $_SESSION['user']['Role'];
     }
     public function getTel()
     {

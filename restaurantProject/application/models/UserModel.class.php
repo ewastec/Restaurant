@@ -18,7 +18,7 @@ class UserModel
     public function registerUser($form)
     {        
         // var_dump($form); die;
-        $sql = 'INSERT INTO `users`(`first_name`, `last_name`, `email`, `password`, `street`, `city`, `code_postal`, `tel`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';		
+        $sql = 'INSERT INTO `users`(`first_name`, `last_name`, `email`, `password`, `street`, `city`, `code_postal`, `tel`,`role`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';		
         $lastId = $this->db->executeSql($sql, $form);         
         return $lastId;       
     }
@@ -28,5 +28,10 @@ class UserModel
         $result = $this->db->queryOne($sql, $form);
         //var_dump($result); die();
         return $result;
+    }
+    public function editUserAccount($userId)
+    {
+        $sql = "UPDATE `users` SET `first_name`=?,`last_name`=?,`email`=?,`password`=?,`street`=?,`city`=?,`code_postal`=?,`tel`=?,`role`=? WHERE id = ?";
+        $result = $this->db->query($sql, $userId);
     }
 }

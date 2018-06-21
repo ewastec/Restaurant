@@ -47,9 +47,10 @@ class LoginController
 			$city = $numberOfUsers['city'];
 			$codePostal = $numberOfUsers['code_postal'];
 			$tel = $numberOfUsers['tel'];
+			$role = $numberOfUsers['role'];
 			// var_dump($userId); die;
 			$session = new UserSession();
-			$session->create($userId, $firstName, $lastName, $email, $street, $city, $codePostal, $tel);
+			$session->create($userId, $firstName, $lastName, $email, $street, $city, $codePostal, $tel, $role);
 		}
 		else
 		{

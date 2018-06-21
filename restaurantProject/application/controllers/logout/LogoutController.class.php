@@ -10,6 +10,9 @@ class LogoutController
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
+		$session = new UserSession;
+		$session->destroy();
+		$http->redirectTo('/');
         
 
     }

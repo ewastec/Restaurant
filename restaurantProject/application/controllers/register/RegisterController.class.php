@@ -51,6 +51,10 @@ class RegisterController
 				$message = 'user with this email addresse alredy exist !!!';
 				return ['message' => $message];
 			}else{
+				//push role on the end of array
+				$role = 'user';
+				array_push($form, $role);
+				//var_dump($form); die;
 				//register user		
 				$userMod->registerUser($form);
 				$http->redirectTo('/login');

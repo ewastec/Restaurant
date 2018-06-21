@@ -1,6 +1,6 @@
 <?php
 
-class UserController
+class HomeController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
@@ -10,11 +10,11 @@ class UserController
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
-		$session = new UserSession();
-		if($session->isAuthenticated())
-		{
-			return ['session' => $session];
-		}		
+
+        $menu = new FoodModel();
+		$entree = $menu->showMenuEntree();
+		$plates = $menu->showMenuPlates();
+		return ['entree' => $entree, 'plates' => $plates];
     }
 
     public function httpPostMethod(Http $http, array $formFields)
@@ -25,20 +25,5 @@ class UserController
     	 * L'argument $http est un objet permettant de faire des redirections etc.
     	 * L'argument $formFields contient l'équivalent de $_POST en PHP natif.
     	 */
-		//var_dump($formFields); die;		
-		//var_dump(array_keys($formFields)); die;
-		$user = new UserModel();
-		switch(array_keys($formFields))
-		{
-			case 'editAccount':
-				$user->editUserAccount($formFields[editAccount]);
-				break;
-			case 'deleteAccount':
-				$user->deleteUserAccount($formFields['deleteAccount']);
-				break;
-		}
-		
-		
-		
     }
 }

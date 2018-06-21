@@ -42,9 +42,13 @@
     <a href="<?=$requestUrl ?>/menu">Menu</a>
     <a href="<?=$requestUrl ?>/reservation">Reservation</a>
 <?php $session = new UserSession;
-     if($session->isAuthenticated()): ?>
-     <a href="<?=$requestUrl ?>/logout">Logout</a>
+    if($session->isAuthenticated()): ?>
+    <a href="<?=$requestUrl ?>/logout">Logout</a>
     <a href="<?=$requestUrl ?>/user">User Account</a>
+<?php elseif($session->isAuthenticated() && ($session->getRole() == 'admin')): ?>   
+    <a href="<?=$requestUrl ?>/logout">Logout</a>
+    <a href="<?=$requestUrl ?>/user">User Account</a>
+    <a href="<?=$requestUrl ?>/backen">Backend</a>
 <?php else: ?>
     <a href="<?=$requestUrl ?>/register">Register</a>
     <a href="<?=$requestUrl ?>/login">Login</a>
