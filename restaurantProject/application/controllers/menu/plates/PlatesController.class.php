@@ -1,6 +1,6 @@
 <?php
 
-class MenuController
+class PlatesController
 {
     public function httpGetMethod(Http $http, array $queryFields)
     {
@@ -11,9 +11,8 @@ class MenuController
     	 * L'argument $queryFields contient l'équivalent de $_GET en PHP natif.
     	 */
 		$menu = new FoodModel();
-		$categories = $menu->showCategories();
-
-		return ['categories' => $categories];
+		$plates = $menu->showMenuPlates();
+		return ['plates' => $plates];
     }
 
     public function httpPostMethod(Http $http, array $formFields)

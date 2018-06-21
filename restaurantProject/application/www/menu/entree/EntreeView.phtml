@@ -1,0 +1,35 @@
+<div class="menu">
+    <section class="entree">
+        <div class="navMenu">
+            <a href="<?=$requestUrl ?>/menu">Menu </a>
+            <a href="<?=$requestUrl ?>/menu/entree">Entree </a>
+            <a href="<?=$requestUrl ?>/menu/plates">Plates </a>
+            <a href="<?=$requestUrl ?>/menu/deserts">Deserts </a>
+            <a href="<?=$requestUrl ?>/menu/boissons">boissons </a>        </div>
+
+        <div class="flex">
+            <?php if(isset($entree)): ?>
+            <?php //var_dump($entree); ?>
+            <?php foreach($entree as $entre): ?>
+
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">Entree</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="#"><?= $entre['product_name']; ?></a>
+                    </h3>
+                    <div class="mb-1 text-muted"><?= $entre['price']; ?> Euros</div>
+                    <p class="card-text mb-auto"><?= $entre['product_description']; ?></p>
+                    <a href="#">Add</a>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" src="<?= $wwwUrl ?>/images/entree/001.jpeg" alt="Card image cap">
+                </div>
+            </div>
+
+            <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        
+    </section>
+</div>

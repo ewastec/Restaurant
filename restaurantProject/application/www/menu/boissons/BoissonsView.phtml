@@ -1,0 +1,36 @@
+<div class="menu">
+    <section class="boissons">
+        <div class="navMenu">
+            <a href="<?=$requestUrl ?>/menu">Menu </a>
+            <a href="<?=$requestUrl ?>/menu/entree">Entree </a>
+            <a href="<?=$requestUrl ?>/menu/plates">Plates </a>
+            <a href="<?=$requestUrl ?>/menu/deserts">Deserts </a>
+            <a href="<?=$requestUrl ?>/menu/boissons">boissons </a>
+        </div>
+
+        <div class="flex">
+            <?php if(isset($boissons)): ?>
+            <?php //var_dump($boissons); ?>
+            <?php foreach($boissons as $boisson): ?>
+
+            <div class="col-md-6">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">boissons</strong>
+                    <h3 class="mb-0">
+                        <a class="text-dark" href="#"><?= $boisson['product_name']; ?></a>
+                    </h3>
+                    <div class="mb-1 text-muted"><?= $boisson['price']; ?> Euros</div>
+                    <p class="card-text mb-auto"><?= $boisson['product_description']; ?></p>
+                    <a href="#">Add</a>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" src="<?= $wwwUrl ?>/images/boissons/001.jpeg" alt="Card image cap">
+                </div>
+            </div>
+
+            <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+        
+    </section>
+</div>

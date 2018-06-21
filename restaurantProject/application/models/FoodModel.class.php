@@ -20,4 +20,25 @@ class FoodModel
         $result = $this->db->query($sql, $value);
         return $result;
     }
+    public function showMenuDeserts()
+    {
+        $sql = 'SELECT * FROM product WHERE id_category = ?';
+        $value = [3];
+        $result = $this->db->query($sql, $value);
+        return $result;
+    }
+    public function showMenuBoissons()
+    {
+        $sql = 'SELECT * FROM product WHERE id_category = ?';
+        $value = [4];
+        $result = $this->db->query($sql, $value);
+        return $result;
+    }
+    public function showCategories()
+    {
+        $sql = 'SELECT * FROM category';
+        $value = [];
+        $result = $this->db->query($sql, $value);
+        return $result;
+    }
 }
